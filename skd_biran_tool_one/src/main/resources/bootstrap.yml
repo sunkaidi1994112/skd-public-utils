@@ -1,0 +1,34 @@
+server:
+  port: 8096
+  servlet:
+    context-path: /
+spring:
+  datasource:
+    url: jdbc:mysql://123.57.142.13:3306/market?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    username: root
+    password: root
+  application:
+    name: tool-one
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 123.57.142.13:8848
+        namespace: d5307abf-1638-4d76-9ae3-1de3b2825a90
+        group: DEFAULT_GROUP_001
+      config:
+        server-addr: 123.57.142.13:8848
+        file-extension: yml
+        namespace: d5307abf-1638-4d76-9ae3-1de3b2825a90
+        group: DEFAULT_GROUP_001
+
+
+#mybatis-plush配置
+mybatis-plus:
+  type-aliases-package: com.market.pojo
+  mapper-locations: classpath:/mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com.market.mapper: debug
